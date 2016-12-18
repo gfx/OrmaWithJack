@@ -2,6 +2,7 @@ package com.github.gfx.ormawithjack;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,5 +12,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         OrmaDatabase orma = OrmaDatabase.builder(this).build();
+
+        for (Book book: orma.selectFromBook()) {
+            Log.d("MainActivity", book.toString());
+        }
     }
 }
